@@ -1,0 +1,103 @@
+.greentext {
+	color: green;
+}
+
+.deadlink {
+	text-decoration: line-through;
+}
+
+.spoiler {
+	color: black;
+	background-color: black;
+}
+
+.spoiler:hover {
+	color: white;
+}
+
+
+.reply {
+	margin: 0 0 16px 0;
+	padding: 0 20px 6px 20px;
+	border-left: 3px solid #343a40;
+}
+
+.reply:not(.op) {
+	padding-top: 6px;
+}
+
+.reply.highlight {
+	background-color: rgba(0, 0, 0, 0.15);
+}
+
+.reply .content {
+	margin-bottom: 0;
+	font-size: 18px;
+	line-height: 1.1;
+}
+
+.reply .content pre {
+	margin: 0;
+	tab-size: 4;
+}
+
+.reply .infos {
+	float: right;
+}
+
+.reply .subject {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.reply .date {
+	font-size: 1rem;
+}
+
+.reply .anchor,
+.reply .id {
+	font-size: 1.1rem;
+}
+
+.reply-zone {
+	text-align: center;
+}
+
+
+#replyBox {
+	position: absolute;
+	z-index: 10;
+	min-width: 250px;
+}
+
+#replyBox > .header {
+	z-index: 11;
+	padding: 8px 12px;
+	background-color: white;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-bottom: none;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	cursor: move;
+	outline: 0;
+}
+
+#replyBox > #replyForm > textarea {
+	min-width: 250px;
+	border-radius: 0;
+	resize: auto;
+}
+
+#replyBox > #replyForm > button {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+#replyBox > #replyForm > .invalid-feedback {
+	margin-top: 0;
+	padding: 5px 0;
+	border: 1px solid var(--red);
+	border-top: 0;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}

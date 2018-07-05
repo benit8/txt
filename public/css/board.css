@@ -1,0 +1,28 @@
+table.thread-list tr {
+	cursor: pointer;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+		-ms-user-select: none;
+		 -o-user-select: none;
+			user-select: none;
+}
+
+table.thread-list tr > th:first-child,
+table.thread-list tr > td:first-child {
+	max-width: 0;
+	width: 100%;
+	text-align: left;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+
+table.thread-list tr > th,
+table.thread-list tr > td,
+table.thread-list tr > td * {
+	white-space: nowrap;
+}
+
+table.thread-list tr > td:first-child > i.fa {
+	/*margin-bottom: 1px;*/
+}
