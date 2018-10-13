@@ -24,7 +24,7 @@ class Board extends \Core\Controller
 			'threads' => $this->model->getThreads()
 		]);
 
-		$this->loadFiles([
+		$this->loadFile([
 			"css/board.css",
 			"js/board.js"
 		]);

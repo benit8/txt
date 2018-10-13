@@ -14,7 +14,7 @@ class Index extends \Core\Controller
 		$boards = $this->model->getBoards();
 
 		$this->loadFile('css/index.css');
-		$this->setVar('boards', $boards);
+		$this->setVars(['boards' => $boards]);
 		$this->render('index');
 	}
 }

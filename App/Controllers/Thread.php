@@ -33,7 +33,7 @@ class Thread extends \Core\Controller
 			'stats' => $stats
 		]);
 
-		$this->loadFiles([
+		$this->loadFile([
 			"css/thread.css",
 			"js/thread.js"
 		]);

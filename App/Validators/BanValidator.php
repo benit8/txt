@@ -13,8 +13,9 @@ class BanValidator
 
 		$record = $db->fetch("SELECT * FROM `ips` WHERE `ip` = ?", $ip);
 
-		if (!$record)
+		if (!$record) {
 			$db->query("INSERT INTO `ips` (`ip`) VALUES (?)", $ip);
+		}
 		else if ($record->status == 'banned') {
 			if (!empty($record->expire) && strtotime($record->expire) <= time())
 				$db->query("UPDATE `ips` SET `status` = 'good', `expire` = NULL, `reason` = NULL WHERE `ip` = ?", $ip);
@@ -32,7 +33,7 @@ class BanValidator
 
 		printf("You are banned :(\n");
 		printf("Reason: %s\n", ($record->reason ?: "<i>None specified</i>"));
-		printf("Date of unban: %s\n", ($record->expire ?: "<i>None specified</i>"));
+		printf("Date of unban: %s\n", ($record->expire ?: "Forever"));
 
 		return ob_get_clean();
 	}

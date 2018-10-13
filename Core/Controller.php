@@ -12,7 +12,7 @@ class Controller
 	public function __construct()
 	{}
 
-	public function loadModel(string $model, ...$args)
+	public function loadModel($model, ...$args)
 	{
 		require_once(ROOT . "App/Models/$model.php");
 
@@ -20,24 +20,17 @@ class Controller
 		$this->model = new $name(...$args);
 	}
 
-	public function setVar(string $name, $var)
-	{
-		$this->vars[$name] = $var;
-	}
-
-	public function setVars(array $vars)
+	public function setVars($vars)
 	{
 		$this->vars = array_merge($this->vars, $vars);
 	}
 
-	public function loadFile(string $file)
+	public function loadFile($file)
 	{
-		$this->files[] = $file;
-	}
-
-	public function loadFiles(array $files)
-	{
-		$this->files = array_merge($this->files, $files);
+		if (is_array($file))
+			$this->files = array_merge($this->files, $file);
+		else
+			$this->files = array_merge($this->files, [$file]);
 	}
 
 	public function render($filename, $layout = 'default')
@@ -45,12 +38,12 @@ class Controller
 		$parts = explode('\\', get_class($this));
 
 		$this->view = new View(end($parts), $layout);
-		$this->switchFilesToView();
+		$this->passFilesToView();
 		$this->view->setVars($this->vars);
 		$this->view->render($filename);
 	}
 
-	private function switchFilesToView()
+	private function passFilesToView()
 	{
 		foreach ($this->files as $file) {
 			$filepath = ROOT . "public/$file";
