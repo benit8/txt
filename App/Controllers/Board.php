@@ -9,7 +9,7 @@ class Board extends \Core\Controller
 	public function __construct()
 	{
 		$this->loadModel('Boards');
-		$this->setVars(['boards' => $this->model->getBoards()]);
+		$this->setVars(['boardList' => $this->model->getBoardList()]);
 	}
 
 	public function index($board)

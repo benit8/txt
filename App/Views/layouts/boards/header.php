@@ -15,6 +15,7 @@
 
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+		<link rel="stylesheet" href="<?= WEBROOT ?>css/bs-overrides.css">
 		<link rel="stylesheet" href="<?= WEBROOT ?>css/default.css">
 		<?php foreach ($styles as $style): ?>
 			<link rel="stylesheet" href="<?= $style ?>">
@@ -22,21 +23,9 @@
 		<link rel="icon" href="<?= WEBROOT ?>images/favicon.ico"/>
 	</head>
 	<body>
-		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-			<a class="navbar-brand" href="<?= WEBROOT ?>"><?= \Core\Config::site['title'] ?></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbar">
-				<ul class="navbar-nav mr-auto">
-					<?php foreach ($boards as $b): ?>
-						<li class="nav-item">
-							<a class="nav-link" href="<?= WEBROOT . $b->id ?>/" title="<?= $b->title ?>">/<?= $b->id ?>/</a>
-						</li>
-					<?php endforeach; ?>
-				</ul>
-			</div>
+		<nav class="navbar navbar-expand-md fixed-top bg-dark">
+			<span class="board-list mr-auto"><?= $boardList ?></span>
+			<span><a href="<?= WEBROOT ?>">Home</a></span>
 		</nav>
 
 		<main role="main">

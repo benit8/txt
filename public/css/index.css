@@ -2,6 +2,18 @@ section:not(:last-of-type) {
 	margin-bottom: 4rem;
 }
 
-.board-list {
-	columns: 2;
+.board-container {
+	columns: 4;
+}
+
+@media screen and (max-width: 992px) {
+	.board-container {
+		columns: 2;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.board-container {
+		columns: 1;
+	}
 }

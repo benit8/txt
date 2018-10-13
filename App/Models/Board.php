@@ -47,9 +47,14 @@ class Board extends \Core\Model
 	{
 		$threads = $this->db->fetchAll("
 			SELECT *
-			 FROM `posts`
-			 WHERE `board` = ? AND `parent` IS NULL
-			 ORDER BY `sticky` DESC, `last_bump` DESC",
+			  FROM
+			    `posts`
+			  WHERE
+			    `board` = ? AND
+			    `parent` IS NULL
+			  ORDER BY
+			    `sticky` DESC,
+			    `last_bump` DESC",
 			$this->board
 		);
 

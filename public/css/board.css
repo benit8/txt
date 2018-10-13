@@ -1,4 +1,9 @@
-table.thread-list tr {
+.archived {
+	color: #b5b5b5;
+}
+
+
+table.thread-list > tbody > tr {
 	cursor: pointer;
 	-webkit-user-select: none;
 	   -moz-user-select: none;
@@ -23,6 +28,14 @@ table.thread-list tr > td * {
 	white-space: nowrap;
 }
 
-table.thread-list tr > td:first-child > i.fa {
-	/*margin-bottom: 1px;*/
+table.thread-list > tbody > tr:last-child {
+	border-bottom: 1px solid #dee2e6;
+}
+
+
+@media screen and (max-width: 992px) {
+	table.thread-list tr > th:not(:first-child),
+	table.thread-list tr > td:not(:first-child) {
+		display: none;
+	}
 }

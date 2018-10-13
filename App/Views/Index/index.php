@@ -7,7 +7,7 @@
 	<h3>Board list</h3>
 	<hr>
 
-	<div class="board-list">
+	<div class="board-container">
 		<?php foreach ($boards as $board): ?>
 			<a href="<?= $board->id ?>/" class="d-block"><?= $board->title ?></a>
 		<?php endforeach; ?>

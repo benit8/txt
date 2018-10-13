@@ -23,6 +23,21 @@ class Thread extends \Core\Model
 		return $this->getOP() !== false;
 	}
 
+	public function isSticky(): bool
+	{
+		return $this->getOP()->sticky !== '0';
+	}
+
+	public function isLocked(): bool
+	{
+		return $this->getOP()->locked !== '0';
+	}
+
+	public function isArchived(): bool
+	{
+		return $this->getOP()->archived !== '0';
+	}
+
 	public function getOP()
 	{
 		return $this->db->fetch(

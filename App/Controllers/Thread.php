@@ -3,14 +3,13 @@
 namespace App\Controllers;
 
 use \App\Validators\FormValidator;
-use \App\Models\Thread as ThreadModel;
 
 class Thread extends \Core\Controller
 {
 	public function __construct()
 	{
 		$this->loadModel('Boards');
-		$this->setVars(['boards' => $this->model->getBoards()]);
+		$this->setVars(['boardList' => $this->model->getBoardList()]);
 	}
 
 	public function index($board, $thread)
@@ -30,13 +29,17 @@ class Thread extends \Core\Controller
 
 		$this->setVars([
 			'replies' => $replies,
-			'stats' => $stats
+			'stats' => $stats,
+			'op' => $op
 		]);
 
 		$this->loadFile([
 			"css/thread.css",
 			"js/thread.js"
 		]);
+
+		if (!($op->locked || $op->archived))
+			$this->loadFile("js/replyBox.js");
 
 		$this->render('index', 'boards');
 	}

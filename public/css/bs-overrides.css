@@ -1,0 +1,56 @@
+/* Bootstrap overrides
+----------------------------------------- */
+
+body > main:first-child > .container {
+	padding-top: 1rem;
+}
+
+body > main:not(:first-child) > .container {
+	padding-top: 4rem;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	-webkit-animation: autofill 0s forwards;
+	animation: autofill 0s forwards;
+}
+
+textarea.form-control {
+	min-height: 62px;
+	padding: 6px 8px;
+	line-height: 1.1;
+}
+
+img {
+	max-width: 100%;
+}
+
+.alert ul {
+	list-style-type: none;
+	margin-bottom: 0px;
+	padding-left: 10px;
+}
+
+.card > .card-header > h1, .card > .card-header > h2,
+.card > .card-header > h3, .card > .card-header > h4,
+.card > .card-header > h5, .card > .card-header > h6 {
+	display: inline;
+	margin-bottom: 0px;
+}
+
+.progress {
+	position: relative;
+}
+
+.progress span {
+	position: absolute;
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+.invalid-feedback > ul {
+	margin-bottom: 0 !important;
+}

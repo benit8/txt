@@ -15,11 +15,19 @@
 	color: white;
 }
 
+.subject {
+	margin-bottom: 2rem;
+	font-size: 20px;
+	font-weight: bold;
+	word-break: break-all;
+}
+
 
 .reply {
 	margin: 0 0 16px 0;
 	padding: 0 20px 6px 20px;
 	border-left: 3px solid #343a40;
+	line-height: 1.1;
 }
 
 .reply:not(.op) {
@@ -33,7 +41,7 @@
 .reply .content {
 	margin-bottom: 0;
 	font-size: 18px;
-	line-height: 1.1;
+	word-break: break-all;
 }
 
 .reply .content pre {
@@ -45,18 +53,13 @@
 	float: right;
 }
 
-.reply .subject {
-	font-size: 20px;
-	font-weight: bold;
-}
-
 .reply .date {
-	font-size: 1rem;
+	font-size: .9rem;
 }
 
 .reply .anchor,
 .reply .id {
-	font-size: 1.1rem;
+	font-size: 1rem;
 }
 
 .reply-zone {
@@ -72,7 +75,7 @@
 
 #replyBox > .header {
 	z-index: 11;
-	padding: 8px 12px;
+	padding: 6px 12px;
 	background-color: white;
 	border: 1px solid rgba(0, 0, 0, 0.2);
 	border-bottom: none;
@@ -88,6 +91,10 @@
 	resize: auto;
 }
 
+#replyBox > #replyForm > textarea:focus {
+	box-shadow: none;
+}
+
 #replyBox > #replyForm > button {
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
@@ -100,4 +107,16 @@
 	border-top: 0;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
+}
+
+
+@media screen and (max-width: 768px) {
+	.reply .infos {
+		display: block;
+		float: unset;
+	}
+
+	.reply .content {
+		margin-top: 4px;
+	}
 }

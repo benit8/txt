@@ -22,7 +22,7 @@
 			</thead>
 			<tbody>
 				<?php foreach ($threads as $t): ?>
-					<tr href="<?= $t->id ?>">
+					<tr href="<?= $t->id ?>" class="<?= $t->archived ? "archived" : '' ?>">
 						<td>
 							<?php if ($t->archived): ?><i class="fa fa-sm fa-archive" title="Archived"></i><?php endif; ?>
 							<?php if ($t->sticky): ?><i class="fa fa-sm fa-thumbtack" title="Pinned"></i><?php endif; ?>

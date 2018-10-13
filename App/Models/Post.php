@@ -44,6 +44,6 @@ class Post extends \Core\Model
 		if (!is_int($date))
 			$date = strtotime($date);
 
-		return strftime("%c", $date);
+		return strftime("%x(%a)%X", $date);
 	}
 }
