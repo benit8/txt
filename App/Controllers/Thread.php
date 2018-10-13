@@ -10,7 +10,7 @@ class Thread extends \Core\Controller
 	public function __construct()
 	{
 		$this->loadModel('Boards');
-		$this->setVar('boards', $this->model->getBoards());
+		$this->setVars(['boards' => $this->model->getBoards()]);
 	}
 
 	public function index($board, $thread)
