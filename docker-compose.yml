@@ -1,0 +1,58 @@
+version: "3"
+
+volumes:
+  mysqldata:
+  phpmyadmindata:
+
+services:
+  nginx:
+    image: nginx:1-alpine
+    container_name: txt-www
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./config/nginx:/etc/nginx/conf.d
+      - .:/var/www
+      - phpmyadmindata:/var/www/phpmyadmin
+    restart: always
+    depends_on:
+      - php
+      - phpmyadmin
+
+  php:
+    build: ./docker
+    container_name: txt-php
+    volumes:
+      - .:/var/www
+    restart: always
+
+  db:
+    image: mysql:8
+    container_name: txt-db
+    ports:
+      - 3306:3306
+    env_file:
+      - ".env"
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_ROOT_USER=${MYSQL_ROOT_USER}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    restart: always
+    volumes:
+      - ./config/mysql:/etc/mysql/conf.d
+      - ./database/seed:/docker-entrypoint-initdb.d
+      - mysqldata:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:fpm-alpine
+    container_name: txt-phpmyadmin
+    restart: always
+    volumes:
+      - phpmyadmindata:/var/www/html
+    environment:
+      - PMA_HOST=db
+    depends_on:
+      - db

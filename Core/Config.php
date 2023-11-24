@@ -8,7 +8,7 @@ class Config
 	{}
 
 	const database = [
-		'host' => '127.0.0.1',
+		'host' => 'db',
 		'user' => 'root',
 		'pass' => 'ascent',
 		'name' => 'txt'
